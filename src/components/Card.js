@@ -67,7 +67,7 @@ return(<React.Fragment>
   <br/>
   <div class="actions">
     <div id="cta">
-      <a id="vcard"  rel="noreferrer" download="" target="_blank" aria-label="Save Contact" className="button">
+      <a id="vcard" href={data.vcard} rel="noreferrer" download="" target="_blank" aria-label="Save Contact" className="button">
         <div class="icon action">
           <svg viewBox="0 0 24 24"  fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2">
             <path d="M0 0h24v24H0z" fill="none"></path>
