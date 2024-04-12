@@ -75,7 +75,7 @@ return(<React.Fragment>
             <path d="M5 18c0-3.863 3.137-7 7-7s7 3.137 7 7m-7-2v6m3-3l-3 3-3-3" fill="none" stroke="#fff" stroke-width="2"></path>
           </svg>
         </div>
-        <p class="action">Save Contact</p>
+        <p class="action">Save Contacts</p>
       </a>
     </div>
     <div class="actionsC">
