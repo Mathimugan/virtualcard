@@ -21,7 +21,7 @@ export default function App() {
     }
     const onSubmit = async(values) => {
     
-        const response = await axios.post("https://service.fuyucorp.com:4010/addEmp",values);
+        const response = await axios.post("https://service.fuyucorp.com:4010/addEmp",user);
         console.log(response);
     };
 
