@@ -1,9 +1,12 @@
 import React, { useState } from 'react'; 
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css'; 
 import Form from 'react-bootstrap/Form'; 
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 export default function App() { 
+  const navigate = useNavigate();
+  const [disabled,setDisabled]=useState(false);
     const [user,Setuser]=useState({
     fname:'',
     lname:'',
@@ -20,9 +23,10 @@ export default function App() {
      Setuser({...user,[e.target.name]:e.target.value});
     }
     const onSubmit = async(values) => {
-    
+       setDisabled(true);
         const response = await axios.post("https://service.fuyucorp.com:4010/addEmp",user);
         console.log(response);
+        navigate(`/card/${response.id}`);
     };
 
 return ( 
@@ -92,8 +96,8 @@ return (
         <span className='text-danger'>{errors.website && errors.website.message}</span>
 		</Form.Group>  
         <br/>
-     
-	    <input type="submit" name="submit" className="btn btn-danger btn-lg" value="Submit"/>
+     <button type="submit" disabled={disabled} className="btn btn-danger btn-lg">Submit</button>
+	
 	</Form> 
 	</div> 
 ); 
