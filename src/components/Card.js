@@ -26,7 +26,7 @@ const Card = () =>
   useEffect(()=>
 {
 
-  axios.get("https://service.fuyucorp.com:4010/getEmp?id"=`${id}`).then((res)=>
+  axios.get("https://service.fuyucorp.com:4010/getEmp?id="+`${id}`).then((res)=>
 {
   const data = res.data;
   Setdata({
