@@ -30,6 +30,7 @@ const EmployeeForm = () => {
     
       const response = axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
       console.log(response);
+      console.log(response);
     }
     const onSubmit = async(values) => {
       setDisable(true);
