@@ -71,7 +71,7 @@ return (
               <span className='text-danger'>{errors.mobile_no_1 && errors.mobile_no_1.message}</span>
 		</Form.Group> 
         <Form.Group> 
-		<Form.Label>Malayasia Mobile Numbers</Form.Label> 
+		<Form.Label>Malayasia Mobile Number</Form.Label> 
 		<Form.Control type="number" name="mobile_no_2" {...register("mobile_no_2", {
             required:"* Malaysia Mobile Number is required"
            })} value={user.mobile_no_2} onChange={handleChange}/>

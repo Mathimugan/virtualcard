@@ -9,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Form/>}></Route>
       <Route path="/card/:id" element={<Card/>}></Route>
+      <Route path="/card" element={<Card/>}></Route>
     </Routes>
     </BrowserRouter>
   );
