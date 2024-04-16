@@ -23,12 +23,12 @@ const EmployeeForm = () => {
     {
      Setuser({...user,[e.target.name]:e.target.value});
     }
-    const checkEmailexist = (e) =>
+    const checkEmailexist = async(e) =>
     {
       
       var email=e.target.value;
     
-      const response = axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
+      const response = await axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
       console.log(response);
       const is_exist = response.is_exist;
       if(is_exist)
