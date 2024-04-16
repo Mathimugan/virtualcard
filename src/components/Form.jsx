@@ -29,7 +29,8 @@ const EmployeeForm = () => {
       var email=e.target.value;
     
       const response = axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
-      const is_exist = response.data.is_exist;
+      console.log(response);
+      const is_exist = response.is_exist;
       if(is_exist)
       {
         setIsexist(true);
@@ -48,7 +49,7 @@ const EmployeeForm = () => {
         console.log(response.data.id);
         navigate(`/card/${response.data.id}`);
     };
-console.log(disable);
+
 return ( 
 
 	<div style={{ display: 'block', 
