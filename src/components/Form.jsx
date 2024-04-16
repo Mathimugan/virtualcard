@@ -25,7 +25,7 @@ export default function App() {
     const onSubmit = async(values) => {
        setDisabled(true);
         const response = await axios.post("https://service.fuyucorp.com:4010/addEmp",user);
-        console.log(data);
+      
         console.log(response.data.id);
         navigate(`/card/${response.data.id}`);
     };
