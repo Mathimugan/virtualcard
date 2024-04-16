@@ -28,7 +28,7 @@ const EmployeeForm = () => {
       
       var email=e.target.value;
     
-      const response = axios.get("https://service.fuyucorp.com:4010/getEmp",email);
+      const response = axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
       console.log(response);
     }
     const onSubmit = async(values) => {
