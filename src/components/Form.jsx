@@ -1,12 +1,13 @@
-import React, { useState } from 'react'; 
+import React, { useState  } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css'; 
-import Form from 'react-bootstrap/Form'; 
 import axios from 'axios';
 import { useForm } from "react-hook-form";
-export default function App() { 
+import Form from 'react-bootstrap/Form';
+const EmployeeForm = () => { 
   const navigate = useNavigate();
-  const [disabled,setDisabled]=useState(false);
+  const [disable,setDisable]=useState(false);
+  const [isexist,setIsexist]=useState(false);
     const [user,Setuser]=useState({
     fname:'',
     lname:'',
@@ -22,15 +23,23 @@ export default function App() {
     {
      Setuser({...user,[e.target.name]:e.target.value});
     }
+    const checkEmailexist = (e) =>
+    {
+      
+      var email=e.target.value;
+      const response = axios.get("https://service.fuyucorp.com:4010/getEmp",email);
+      console.log(response);
+    }
     const onSubmit = async(values) => {
-       setDisabled(true);
+      setDisable(true);
         const response = await axios.post("https://service.fuyucorp.com:4010/addEmp",user);
       
         console.log(response.data.id);
         navigate(`/card/${response.data.id}`);
     };
-
+console.log(disable);
 return ( 
+
 	<div style={{ display: 'block', 
 				width: 700, 
 				padding: 30 }}> 
@@ -86,7 +95,7 @@ return (
                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                message: "invalid email address"
              }
-           })} value={user.email} onChange={handleChange} autoComplete='off'/>
+           })} value={user.email} onChange={checkEmailexist()} autoComplete='off'/>
            <span className='text-danger'>{errors.email && errors.email.message}</span>
 		</Form.Group>
         <Form.Group> 
@@ -97,9 +106,12 @@ return (
         <span className='text-danger'>{errors.website && errors.website.message}</span>
 		</Form.Group>  
         <br/>
-     <button type="submit" disabled={disabled} className="btn btn-danger btn-lg">Submit</button>
-	
+     <button type="submit" disabled={disable} 
+     className={disable ? "btn btn-danger btn-lg disable" : "btn btn-danger btn-lg allowed" }>Submit</button>
 	</Form> 
 	</div> 
+
 ); 
 }
+
+export default EmployeeForm;
