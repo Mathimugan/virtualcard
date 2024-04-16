@@ -95,7 +95,7 @@ return (
                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                message: "invalid email address"
              }
-           })} value={user.email} onChange={checkEmailexist()} autoComplete='off'/>
+           })} value={user.email} onChange={checkEmailexist} autoComplete='off'/>
            <span className='text-danger'>{errors.email && errors.email.message}</span>
 		</Form.Group>
         <Form.Group> 
