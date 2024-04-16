@@ -27,6 +27,7 @@ const EmployeeForm = () => {
     {
       
       var email=e.target.value;
+    
       const response = axios.get("https://service.fuyucorp.com:4010/getEmp",email);
       console.log(response);
     }
@@ -95,7 +96,7 @@ return (
                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                message: "invalid email address"
              }
-           })} value={user.email} onChange={checkEmailexist} autoComplete='off'/>
+           })} value={user.email} onChange={handleChange}  onBlur={checkEmailexist}autoComplete='off'/>
            <span className='text-dangers'>{errors.email && errors.email.message}</span>
 		</Form.Group>
         <Form.Group> 
