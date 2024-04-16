@@ -96,7 +96,7 @@ return (
                message: "invalid email address"
              }
            })} value={user.email} onChange={checkEmailexist} autoComplete='off'/>
-           <span className='text-danger'>{errors.email && errors.email.message}</span>
+           <span className='text-dangers'>{errors.email && errors.email.message}</span>
 		</Form.Group>
         <Form.Group> 
 		<Form.Label>Website</Form.Label> 
