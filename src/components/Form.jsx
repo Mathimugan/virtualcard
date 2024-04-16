@@ -29,6 +29,16 @@ const EmployeeForm = () => {
       var email=e.target.value;
     
       const response = axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
+      const count = response.data.total;
+      console.log(count);
+      if(count > 0)
+      {
+        setIsexist(true);
+      }
+      else
+      {
+        setIsexist(false);
+      }
       console.log(response);
       console.log(response);
     }
