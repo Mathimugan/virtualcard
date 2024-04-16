@@ -3,9 +3,11 @@ import userprofile from '../user-profile.png';
 import { useState,useEffect } from "react";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
-import Button from 'react-bootstrap/Button';
+import { useParams } from "react-router-dom";
 const Card = () =>
 {
+  const {id}=useParams();
+  console.log(id);
   const [data,Setdata]=useState({
   id:'',
   name:'',
@@ -24,7 +26,7 @@ const Card = () =>
   useEffect(()=>
 {
 
-  axios.get("https://service.fuyucorp.com:4010/getEmp?id=1").then((res)=>
+  axios.get("https://service.fuyucorp.com:4010/getEmp?id"=`${id}`).then((res)=>
 {
   const data = res.data;
   Setdata({
