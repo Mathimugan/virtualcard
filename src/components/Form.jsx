@@ -29,8 +29,8 @@ const EmployeeForm = () => {
       var email=e.target.value;
     
       const response = await axios.get("https://service.fuyucorp.com:4010/checkexist?email="+email);
-      console.log(response);
-      const is_exist = response.is_exist;
+      console.log(response.data.is_exist);
+      const is_exist = response.data.is_exist;
       if(is_exist)
       {
         setIsexist(true);
